@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Escuela de Embalsamaje La Duat</title>
+
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --vino:#6b0f1a;
+  --gris:#1c1c1c;
+  --gris-claro:#f1f1f1;
+  --texto:#2b2b2b;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:var(--texto);
+}
+
+/* HEADER */
+header{
+  background:var(--gris);
+  border-bottom:6px solid var(--vino);
+}
+
+.header-wrap{
+  max-width:1300px;
+  margin:auto;
+  padding:10px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand img{height:55px}
+
+.brand strong{
+  color:#fff;
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  gap:35px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.85rem;
+  letter-spacing:1px;
+}
+
+nav a:hover{color:#fff}
+
+/* HAMBURGUESA */
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:2rem;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("7.jpeg");
+  background-size:cover;
+  background-position:center;
+  padding:160px 30px;
+  color:#fff;
+}
+
+.hero-box{
+  max-width:900px;
+  margin:auto;
+  border-left:6px solid var(--vino);
+  padding-left:40px;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:1.1rem;
+  color:#ddd;
+  max-width:700px;
+}
+
+/* SECCIONES */
+.section{
+  max-width:1300px;
+  margin:120px auto;
+  padding:0 30px;
+}
+
+.section.dark{
+  background:var(--gris-claro);
+  padding:120px 30px;
+}
+
+.section h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  margin-bottom:60px;
+  border-bottom:3px solid var(--vino);
+  display:inline-block;
+  padding-bottom:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:50px;
+}
+
+.block{
+  border-left:4px solid var(--vino);
+  padding-left:25px;
+}
+
+.block h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+}
+
+.block p, .block li{
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+/* FOOTER */
+footer{
+  background:var(--gris);
+  color:#bbb;
+}
+
+.footer-wrap{
+  max-width:1300px;
+  margin:auto;
+  padding:90px 30px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+
+footer h4{
+  font-family:'Playfair Display',serif;
+  color:#fff;
+}
+
+footer a{
+  color:#bbb;
+  text-decoration:none;
+  display:block;
+  margin-bottom:10px;
+}
+
+.footer-bottom{
+  border-top:1px solid #333;
+  padding:25px;
+  text-align:center;
+  font-size:.75rem;
+}
+
+/* RESPONSIVE MENU */
+@media(max-width:900px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--gris);
+    flex-direction:column;
+    overflow:hidden;
+    max-height:0;
+    transition:max-height .3s ease;
+  }
+
+  nav a{
+    padding:18px 30px;
+    border-top:1px solid #333;
+  }
+
+  nav.open{
+    max-height:400px;
+  }
+}
+
+/* RESPONSIVE GENERAL */
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:2rem;
+  }
+
+  .hero p{
+    font-size:.95rem;
+  }
+
+  .section{
+    margin:60px auto;
+    padding:0 20px;
+  }
+
+  .section h2{
+    font-size:1.6rem;
+  }
+
+  .block p, .block li{
+    font-size:.9rem;
+  }
+
+  .gallery img{
+    height:200px;
+  }
+
+  .footer-wrap{
+    grid-template-columns:1fr;
+    gap:40px;
+  padding:40px 30px;
+    text-align:left;
+  }
+
+  footer a{
+    font-size:.9rem;
+    word-break: break-word;
+  }
+}
+
+/* EVITAR QUE TEXTOS LARGOS SE SALGAN */
+a, p, li, strong{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+
+header{
+  background:var(--gris);
+  border-bottom:6px solid var(--vino);
+  position: fixed; /* Fijo al top */
+  top: 0;          /* Pegado arriba */
+  left: 0;
+  width: 100%;
+  z-index: 1000;   /* Para que esté encima del contenido */
+}
+
+/* Ajuste del contenido para que no quede debajo del header */
+body {
+  margin: 0;
+  padding-top: 80px; /* Altura aproximada de tu header */
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:var(--texto);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+    <div class="brand">
+      <img src="ji.png" alt="La Duat">
+      <strong>Escuela de Embalsamaje La Duat</strong>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <nav>
+      <a href="index.html">¿Quienes somos?</a>
+      <a href="registro.html">Registrate</a>
+      <a href="programa.html">Programa</a>
+      <a href="contacto.html">Contactanos</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-box">
+      <h1>Términos y Condiciones</h1>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="section">
+    <h2>1. Registro e Inscripción</h2>
+    <p>Los estudiantes deben ser mayores de 18 años o contar con autorización de sus tutores legales. El proceso de inscripción requiere completar el formulario oficial y realizar el pago correspondiente. La Escuela se reserva el derecho de aceptar o rechazar solicitudes de inscripción sin necesidad de justificar la decisión.</p>
+  </section>
+
+  <section class="section dark">
+    <h2>2. Pagos y Política Financiera</h2>
+    <ul>
+      <li>Los precios de cursos, diplomados y certificaciones están indicados en la plataforma oficial y pueden estar sujetos a cambios sin previo aviso.</li>
+      <li>Los pagos pueden realizarse con tarjeta de crédito, débito o efectivo según los métodos indicados.</li>
+      <li>La inscripción no es reembolsable una vez confirmada, salvo por cancelación de la Escuela.</li>
+      <li>La mensualidad debe pagarse puntualmente; retrasos pueden afectar la continuidad en las clases.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>3. Derechos y Responsabilidades de los Estudiantes</h2>
+    <ul>
+      <li>Cumplir normas de seguridad y protocolos de la Escuela.</li>
+      <li>Asistir a guardias, clases prácticas y teóricas según lo programado.</li>
+      <li>Respetar a instructores, compañeros y las instalaciones.</li>
+      <li>El uso de cadáveres, materiales y equipos es exclusivamente educativo; cualquier mal uso será sancionado.</li>
+      <li>La Escuela no se hace responsable de accidentes por incumplimiento de normas.</li>
+    </ul>
+  </section>
+
+  <section class="section dark">
+    <h2>4. Propiedad Intelectual</h2>
+    <p>Todos los contenidos académicos, imágenes, videos, manuales y documentación proporcionada por la Escuela son propiedad exclusiva de la institución. Queda estrictamente prohibida la reproducción, distribución o comercialización sin autorización escrita de la Escuela.</p>
+  </section>
+
+  <section class="section">
+    <h2>5. Certificación y Reconocimiento Académico</h2>
+    <ul>
+      <li>Los estudiantes que cumplan con guardias, prácticas y reportes recibirán certificación avalada por la Red SEP CONOCER EC0804.</li>
+      <li>La certificación es individual y se entrega solo a quienes cumplan los estándares de aprovechamiento académico.</li>
+      <li>La Escuela puede negar certificación por incumplimiento de normas o falta de evidencia.</li>
+    </ul>
+  </section>
+
+  <section class="section dark">
+    <h2>6. Protección de Datos Personales</h2>
+    <p>La Escuela recopila y procesa datos personales únicamente para fines administrativos, académicos y de comunicación. Los datos no serán compartidos con terceros sin consentimiento expreso, salvo obligación legal. Consulte nuestro Aviso de Privacidad para más detalles.</p>
+  </section>
+
+  <section class="section">
+    <h2>7. Modificaciones a los Cursos</h2>
+    <p>La Escuela puede modificar horarios, contenidos, instructores o modalidades según necesidades académicas o administrativas. Cualquier cambio será comunicado con la mayor antelación posible.</p>
+  </section>
+
+  <section class="section dark">
+    <h2>8. Cancelaciones y Reembolsos</h2>
+    <ul>
+      <li>La Escuela puede cancelar cursos por razones administrativas, legales o de fuerza mayor; los pagos se devolverán proporcionalmente.</li>
+      <li>No se reembolsarán pagos por abandono voluntario una vez iniciadas las clases o guardias.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>9. Limitación de Responsabilidad</h2>
+    <p>La Escuela no se hace responsable por daños, pérdidas o accidentes derivados de la participación en cursos que no cumplan las normas de seguridad establecidas. Los estudiantes asumen todos los riesgos relacionados con la manipulación de cadáveres, químicos y equipo especializado.</p>
+  </section>
+
+  <section class="section dark">
+    <h2>10. Ley Aplicable y Jurisdicción</h2>
+    <p>Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia será resuelta ante los tribunales competentes en Ciudad de México. La Escuela puede actualizar estos Términos en cualquier momento; la versión vigente siempre estará disponible en el sitio web oficial.</p>
+  </section>
+
+  <section class="section">
+    <h2>11. Contacto</h2>
+    <p>Para dudas o aclaraciones sobre estos Términos, puede contactarnos en:</p>
+    <ul>
+      <li>Email: <a href="mailto:supervision@laduat.com.mx">supervision@laduat.com.mx</a></li>
+      <li>Teléfono: 55 4993 5372</li>
+      <li>Dirección: Dr. Jimenez 262, Doctores, Cuauhtémoc, 06720 Ciudad de México, CDMX</li>
+    </ul>
+  </section>
+
+  <section class="section dark">
+    <h2>Aceptación</h2>
+    <p>Al registrarse o participar en nuestros cursos, usted declara haber leído, entendido y aceptado estos Términos y Condiciones en su totalidad.</p>
+  </section>
+
+  <!-- BOTÓN VOLVER ARRIBA -->
+  <section class="section" style="text-align:center;">
+    <a href="#top" style="display:inline-block;padding:12px 25px;background:var(--vino);color:#fff;font-weight:bold;text-decoration:none;border-radius:5px;">Volver Arriba</a>
+  </section>
+
+</main>
+
+<footer id="contacto">
+  <div class="footer-wrap">
+    <div>
+      <!-- Logo -->
+      <img src="ji.png" style="max-width: 40%;">
+      
+      <h4>Escuela de Embalsamaje La Duat</h4>
+      <p>55 4993 5372</p>
+      <p>Dr. Jimenez 262, Doctores, Cuauhtémoc, 06720 Ciudad de México, CDMX</p>
+    </div>
+    <div>
+      <h4>Secciones</h4>
+      <a href="terminos.html">Términos y condiciones</a>
+      <a href="aviso.html">Aviso de privacidad</a>
+      <a href="registro.html">Registrate</a>
+      <a href="contacto.html">Contáctanos</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <a href="mailto:supervision@laduat.com.mx">supervision@laduat.com.mx</a><br>
+      <a href="mailto:facturacion@laduat.com.mx">facturacion@laduat.com.mx</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Escuela de Embalsamaje La Duat
+  </div>
+</footer>
+
+<script>
+const btn = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+btn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Escuela de Embalsamaje La Duat</title>
+
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --vino:#6b0f1a;
+  --gris:#1c1c1c;
+  --gris-claro:#f1f1f1;
+  --texto:#2b2b2b;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:var(--texto);
+}
+
+/* HEADER */
+header{
+  background:var(--gris);
+  border-bottom:6px solid var(--vino);
+}
+
+.header-wrap{
+  max-width:1300px;
+  margin:auto;
+  padding:10px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand img{height:55px}
+
+.brand strong{
+  color:#fff;
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  gap:35px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.85rem;
+  letter-spacing:1px;
+}
+
+nav a:hover{color:#fff}
+
+/* HAMBURGUESA */
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:2rem;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("2.jpeg");
+  background-size:cover;
+  background-position:center;
+  padding:160px 30px;
+  color:#fff;
+}
+
+.hero-box{
+  max-width:900px;
+  margin:auto;
+  border-left:6px solid var(--vino);
+  padding-left:40px;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:1.1rem;
+  color:#ddd;
+  max-width:700px;
+}
+
+/* SECCIONES */
+.section{
+  max-width:1300px;
+  margin:120px auto;
+  padding:0 30px;
+}
+
+.section.dark{
+  background:var(--gris-claro);
+  padding:120px 30px;
+}
+
+.section h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  margin-bottom:60px;
+  border-bottom:3px solid var(--vino);
+  display:inline-block;
+  padding-bottom:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:50px;
+}
+
+.block{
+  border-left:4px solid var(--vino);
+  padding-left:25px;
+}
+
+.block h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+}
+
+.block p, .block li{
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+/* FOOTER */
+footer{
+  background:var(--gris);
+  color:#bbb;
+}
+
+.footer-wrap{
+  max-width:1300px;
+  margin:auto;
+  padding:40px 30px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+
+footer h4{
+  font-family:'Playfair Display',serif;
+  color:#fff;
+}
+
+footer a{
+  color:#bbb;
+  text-decoration:none;
+  display:block;
+  margin-bottom:10px;
+}
+
+.footer-bottom{
+  border-top:1px solid #333;
+  padding:25px;
+  text-align:center;
+  font-size:.75rem;
+}
+
+/* RESPONSIVE MENU */
+@media(max-width:900px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--gris);
+    flex-direction:column;
+    overflow:hidden;
+    max-height:0;
+    transition:max-height .3s ease;
+  }
+
+  nav a{
+    padding:18px 30px;
+    border-top:1px solid #333;
+  }
+
+  nav.open{
+    max-height:400px;
+  }
+}
+
+/* RESPONSIVE GENERAL */
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:2rem;
+  }
+
+  .hero p{
+    font-size:.95rem;
+  }
+
+  .section{
+    margin:60px auto;
+    padding:0 20px;
+  }
+
+  .section h2{
+    font-size:1.6rem;
+  }
+
+  .block p, .block li{
+    font-size:.9rem;
+  }
+
+  .gallery img{
+    height:200px;
+  }
+
+  .footer-wrap{
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:50px 20px;
+    text-align:left;
+  }
+
+  footer a{
+    font-size:.9rem;
+    word-break: break-word;
+  }
+}
+
+/* EVITAR QUE TEXTOS LARGOS SE SALGAN */
+a, p, li, strong{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+
+header{
+  background:var(--gris);
+  border-bottom:6px solid var(--vino);
+  position: fixed; /* Fijo al top */
+  top: 0;          /* Pegado arriba */
+  left: 0;
+  width: 100%;
+  z-index: 1000;   /* Para que esté encima del contenido */
+}
+
+/* Ajuste del contenido para que no quede debajo del header */
+body {
+  margin: 0;
+  padding-top: 80px; /* Altura aproximada de tu header */
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:var(--texto);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-wrap">
+    <div class="brand">
+      <img src="ji.png" alt="La Duat">
+      <strong>Escuela de Embalsamaje La Duat</strong>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <nav>
+      <a href="index.html">¿Quienes somos?</a>
+      <a href="registro.html">Registrate</a>
+      <a href="programa.html">Programa</a>
+      <a href="contacto.html">Contactanos</a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<section class="section">
+  <div class="hero-box" style="text-align:center; margin-bottom:40px;">
+    <h1>Formulario de Registro</h1>
+    <p>Por favor completa todos los campos requeridos y adjunta los documentos necesarios.</p>
+  </div>
+
+  <form id="contactForm" action="enviar.php" method="POST" enctype="multipart/form-data" style="max-width:900px; margin:auto; display:flex; flex-direction:column; gap:20px;">
+
+    <!-- Nombre y Apellido en la misma fila -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:150px;">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
+      </div>
+      <div style="flex:1; min-width:150px;">
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" required>
+      </div>
+    </div>
+
+    <!-- RFC/CURP y Email en la misma fila -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:150px;">
+        <label for="rfc_curp">RFC o CURP:</label>
+        <input type="text" name="rfc_curp" id="rfc_curp" required>
+      </div>
+      <div style="flex:1; min-width:150px;">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+    </div>
+
+    <!-- Dirección y Municipio -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:200px;">
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" id="direccion">
+      </div>
+      <div style="flex:1; min-width:150px;">
+        <label for="ciudad">Municipio o Alcaldía:</label>
+        <input type="text" name="ciudad" id="ciudad">
+      </div>
+    </div>
+
+    <!-- Estado y CP -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:150px;">
+        <label for="estado">Estado:</label>
+        <input type="text" name="estado" id="estado">
+      </div>
+      <div style="flex:1; min-width:100px;">
+        <label for="cp">Código Postal:</label>
+        <input type="text" name="cp" id="cp">
+      </div>
+    </div>
+
+    <!-- Teléfono y Fecha de compra -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:150px;">
+        <label for="telefono">Teléfono (10 dígitos):</label>
+        <input type="tel" name="telefono" id="telefono" pattern="[0-9]{10}" required>
+      </div>
+      <div style="flex:1; min-width:150px;">
+        <label for="fecha_compra">Fecha de compra (estimada):</label>
+        <input type="date" name="fecha_compra" id="fecha_compra">
+      </div>
+    </div>
+
+    <!-- Tipo de persona -->
+    <label for="tipo_persona">Tipo de persona:</label>
+    <select name="tipo_persona" id="tipo_persona" required>
+      <option value="">--Selecciona una opción--</option>
+      <option value="fisica">Persona Física</option>
+      <option value="moral">Persona Moral</option>
+    </select>
+
+    <!-- Archivos obligatorios -->
+    <label for="ine_frente">INE (Frente):</label>
+    <input type="file" name="ine_frente" id="ine_frente" accept="image/*,.pdf" required>
+
+    <label for="ine_reverso">INE (Reverso):</label>
+    <input type="file" name="ine_reverso" id="ine_reverso" accept="image/*,.pdf" required>
+
+    <label for="comprobante_domicilio">Comprobante de domicilio:</label>
+    <input type="file" name="comprobante_domicilio" id="comprobante_domicilio" accept="image/*,.pdf" required>
+
+    <!-- Archivos opcionales -->
+    <label for="archivo_rfc">Archivo de RFC (opcional):</label>
+    <input type="file" name="archivo_rfc" id="archivo_rfc" accept="image/*,.pdf">
+
+  
+    <!-- Honeypot anti-bots -->
+    <input type="text" name="website" style="display:none">
+
+    <button type="submit" style="background:var(--vino); color:#fff; font-weight:bold; border:none; padding:12px 20px; border-radius:5px; cursor:pointer; margin-top:10px;">Enviar</button>
+  </form>
+</section>
+
+<style>
+  #contactForm label {
+    font-weight:bold;
+    font-family:'Playfair Display', serif;
+    color:var(--vino);
+  }
+
+  #contactForm input,
+  #contactForm select,
+  #contactForm textarea {
+    font-family:'Inter', sans-serif;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    width:100%;
+  }
+
+  #contactForm textarea {
+    resize:vertical;
+  }
+
+  #contactForm button:hover {
+    background:#550a12;
+  }
+
+  @media(max-width:900px){
+    #contactForm > div {
+      flex-direction:column;
+    }
+  }
+</style>
+
+
+
+
+
+
+<footer id="contacto">
+  <div class="footer-wrap">
+    <div>
+      <!-- Logo -->
+      <img src="ji.png" style="max-width: 40%;">
+      
+      <h4>Escuela de Embalsamaje La Duat</h4>
+      <p>55 4993 5372</p>
+      <p>Dr. Jimenez 262, Doctores, Cuauhtémoc, 06720 Ciudad de México, CDMX</p>
+    </div>
+    <div>
+      <h4>Secciones</h4>
+      <a href="terminos.html">Términos y condiciones</a>
+      <a href="aviso.html">Aviso de privacidad</a>
+      <a href="registro.html">Registrate</a>
+      <a href="contacto.html">Contáctanos</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <a href="mailto:supervision@laduat.com.mx">supervision@laduat.com.mx</a><br>
+      <a href="mailto:facturacion@laduat.com.mx">facturacion@laduat.com.mx</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Escuela de Embalsamaje La Duat
+  </div>
+</footer>
+
+<script>
+const btn = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+btn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+</script>
+
+</body>
+</html>
